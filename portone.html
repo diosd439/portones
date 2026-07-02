@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instalación de Portones Eléctricos en Bolivia</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+:root{
+  --dark:#071019;
+  --black:#03080e;
+  --blue:#006BFF;
+  --green:#00C853;
+  --yellow:#FFD43B;
+  --white:#ffffff;
+  --soft:#F4F7FA;
+  --metal:#7B8794;
+  --line:rgba(255,255,255,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial, sans-serif;
+  background:var(--dark);
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+
+.nav-auto{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1180px,92%);
+  z-index:99;
+  background:rgba(3,8,14,.78);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(18px);
+  border-radius:18px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 20px 80px rgba(0,0,0,.35);
+}
+
+.logo-auto{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:-.5px;
+}
+
+.logo-auto i{color:var(--yellow)}
+
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  color:#dce6f2;
+}
+
+.nav-menu a:hover{color:var(--green)}
+
+.nav-whatsapp,
+.btn-main{
+  background:linear-gradient(135deg,var(--green),var(--blue));
+  padding:13px 18px;
+  border-radius:999px;
+  font-weight:900;
+  color:white;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  box-shadow:0 0 28px rgba(0,107,255,.35);
+}
+
+.menu-toggle{
+  display:none;
+  font-size:24px;
+}
+
+.hero-gate{
+  min-height:100vh;
+  padding:145px 20px 80px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(0,107,255,.28),transparent 32%),
+    radial-gradient(circle at 50% 62%,rgba(0,200,83,.18),transparent 28%),
+    linear-gradient(180deg,#071827,#03080e);
+}
+
+.hero-gate:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(circle at center,#000 20%,transparent 78%);
+}
+
+.access-pulse{
+  position:absolute;
+  width:1px;
+  height:230px;
+  background:linear-gradient(transparent,var(--blue),var(--green),transparent);
+  animation:pulseScan 4s linear infinite;
+  opacity:.75;
+}
+
+.access-pulse.p1{left:12%;top:14%}
+.access-pulse.p2{right:14%;top:20%;animation-delay:1.2s}
+.access-pulse.p3{left:70%;bottom:5%;animation-delay:2s}
+
+@keyframes pulseScan{
+  from{transform:translateY(-150px);opacity:0}
+  45%{opacity:.9}
+  to{transform:translateY(210px);opacity:0}
+}
+
+.hero-content{
+  width:min(1000px,100%);
+  position:relative;
+  z-index:2;
+}
+
+.tag-auto{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 15px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  color:#dce8f8;
+  margin-bottom:22px;
+}
+
+.hero-gate h1{
+  font-size:clamp(42px,8vw,92px);
+  line-height:.94;
+  letter-spacing:-4px;
+  font-weight:950;
+  margin-bottom:22px;
+}
+
+.hero-gate h1 span{
+  background:linear-gradient(120deg,var(--white),var(--green),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-gate p{
+  max-width:760px;
+  margin:0 auto 34px;
+  color:#c5d0dc;
+  font-size:clamp(17px,2vw,22px);
+  line-height:1.55;
+}
+
+.gate-stage{
+  width:min(720px,95vw);
+  height:300px;
+  margin:18px auto 34px;
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+
+.gate-track{
+  position:absolute;
+  bottom:45px;
+  width:86%;
+  height:8px;
+  border-radius:20px;
+  background:linear-gradient(90deg,transparent,var(--metal),transparent);
+  box-shadow:0 0 20px rgba(0,107,255,.35);
+}
+
+.gate-post{
+  position:absolute;
+  bottom:45px;
+  width:22px;
+  height:205px;
+  background:linear-gradient(180deg,#dfe7ef,#7B8794);
+  border-radius:10px;
+  box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+.gate-post.left{left:8%}
+.gate-post.right{right:8%}
+
+.gate-panel{
+  position:absolute;
+  bottom:62px;
+  width:250px;
+  height:158px;
+  border:3px solid rgba(255,255,255,.86);
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.18) 0 5px,transparent 5px 25px),
+    rgba(0,107,255,.08);
+  box-shadow:
+    inset 0 0 30px rgba(0,107,255,.25),
+    0 0 36px rgba(0,200,83,.2);
+}
+
+.gate-panel.left{
+  right:50%;
+  border-radius:20px 4px 4px 20px;
+  animation:openLeft 3.2s ease-in-out infinite alternate;
+}
+
+.gate-panel.right{
+  left:50%;
+  border-radius:4px 20px 20px 4px;
+  animation:openRight 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes openLeft{
+  from{transform:translateX(0)}
+  to{transform:translateX(-95px)}
+}
+
+@keyframes openRight{
+  from{transform:translateX(0)}
+  to{transform:translateX(95px)}
+}
+
+.motor-box{
+  position:absolute;
+  right:10%;
+  bottom:55px;
+  width:78px;
+  height:78px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#132334,#071019);
+  border:1px solid rgba(255,255,255,.18);
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 35px rgba(0,107,255,.3);
+}
+
+.motor-box i{
+  color:var(--yellow);
+  font-size:28px;
+  animation:spinMotor 2.5s linear infinite;
+}
+
+@keyframes spinMotor{
+  to{transform:rotate(360deg)}
+}
+
+.sensor{
+  position:absolute;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 25px var(--green);
+  animation:sensorBlink 1.2s infinite alternate;
+}
+
+.sensor.s1{left:16%;bottom:175px}
+.sensor.s2{right:16%;bottom:175px;animation-delay:.4s}
+
+@keyframes sensorBlink{
+  to{opacity:.25;transform:scale(1.5)}
+}
+
+.remote{
+  position:absolute;
+  left:12%;
+  bottom:70px;
+  width:52px;
+  height:82px;
+  border-radius:18px;
+  background:#111d2a;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 0 28px rgba(0,107,255,.28);
+}
+
+.remote:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:16px;
+  transform:translateX(-50%);
+  width:17px;
+  height:17px;
+  background:var(--green);
+  border-radius:50%;
+  box-shadow:0 0 16px var(--green);
+}
+
+.remote:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  width:24px;
+  height:6px;
+  border-radius:10px;
+  background:rgba(255,255,255,.4);
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn-ghost{
+  padding:13px 18px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.07);
+  font-weight:900;
+  display:inline-flex;
+  gap:9px;
+  align-items:center;
+}
+
+.section-light{
+  padding:110px 20px;
+  background:var(--soft);
+  color:var(--dark);
+}
+
+.section-dark{
+  padding:110px 20px;
+  background:#071019;
+  color:white;
+}
+
+.container{
+  width:min(1180px,100%);
+  margin:auto;
+}
+
+.section-title{
+  font-size:clamp(32px,5vw,58px);
+  letter-spacing:-2px;
+  margin-bottom:16px;
+  font-weight:950;
+}
+
+.section-sub{
+  max-width:720px;
+  color:#5f6b78;
+  line-height:1.6;
+  margin-bottom:42px;
+}
+
+.section-dark .section-sub{color:#bbc8d7}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.service-unit{
+  background:white;
+  border:1px solid #e5ebf2;
+  border-radius:26px;
+  padding:25px;
+  min-height:158px;
+  position:relative;
+  overflow:hidden;
+}
+
+.service-unit:after{
+  content:"";
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:0;
+  height:4px;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--blue),var(--green));
+}
+
+.service-unit i{
+  color:var(--blue);
+  font-size:27px;
+  margin-bottom:18px;
+}
+
+.service-unit h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.service-unit p{
+  color:#647282;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.type-wall{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.type-block{
+  border-radius:24px;
+  padding:25px;
+  min-height:120px;
+  background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.13);
+  display:flex;
+  align-items:end;
+  font-weight:900;
+  position:relative;
+  overflow:hidden;
+}
+
+.type-block:before{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:70px;
+  right:-16px;
+  top:-16px;
+  border-radius:50%;
+  background:rgba(0,107,255,.28);
+  filter:blur(3px);
+}
+
+.cover-box{
+  background:white;
+  border-radius:34px;
+  padding:30px;
+  border:1px solid #e5ebf2;
+  box-shadow:0 20px 70px rgba(7,16,25,.08);
+}
+
+.search-zone{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#eef3f8;
+  border-radius:18px;
+  padding:15px;
+  margin-bottom:24px;
+}
+
+.search-zone input{
+  flex:1;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:16px;
+  color:var(--dark);
+}
+
+.zone-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.zone-chip{
+  background:#f4f7fa;
+  border:1px solid #e0e7ef;
+  color:#263342;
+  padding:12px 16px;
+  border-radius:999px;
+}
+
+.process-line{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.process-step{
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:24px;
+  padding:22px;
+  min-height:145px;
+}
+
+.process-step strong{
+  color:var(--green);
+  font-size:28px;
+}
+
+.process-step p{
+  color:#d8e3ee;
+  margin-top:12px;
+  line-height:1.45;
+}
+
+.tips-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.tip{
+  background:white;
+  border-radius:22px;
+  padding:23px;
+  border:1px solid #e5ebf2;
+  color:#263342;
+  font-weight:700;
+}
+
+.bisa-pay-zone{
+  padding:120px 20px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(0,107,255,.28),transparent 34%),
+    linear-gradient(180deg,#06111d,#03080e);
+}
+
+.bisa-pay-shell{
+  width:min(1120px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  padding:34px;
+  border-radius:38px;
+  background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 0 80px rgba(0,107,255,.18);
+}
+
+.bisa-pay-console{
+  background:#081624;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:30px;
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+}
+
+.bisa-pay-console:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:24px 24px;
+  opacity:.5;
+}
+
+.bisa-bank-chip{
+  position:relative;
+  z-index:2;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:24px;
+  padding:24px;
+  margin-bottom:14px;
+}
+
+.bisa-bank-chip h3{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.bisa-bank-chip p{
+  color:#c1ccd8;
+  line-height:1.55;
+  margin-bottom:16px;
+}
+
+.bisa-pay-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--blue),var(--green));
+  color:white;
+  font-weight:900;
+}
+
+.bisa-visual-terminal{
+  position:relative;
+  z-index:2;
+  width:260px;
+  max-width:100%;
+  height:190px;
+  margin:55px auto 25px;
+  border-radius:28px;
+  background:linear-gradient(145deg,#132234,#050b12);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 40px rgba(0,107,255,.25);
+  padding:20px;
+}
+
+.bisa-visual-terminal:before{
+  content:"BISA";
+  position:absolute;
+  top:22px;
+  left:24px;
+  font-weight:950;
+  letter-spacing:2px;
+  color:white;
+}
+
+.bisa-visual-terminal:after{
+  content:"";
+  position:absolute;
+  right:28px;
+  top:25px;
+  width:42px;
+  height:28px;
+  border-radius:8px;
+  background:linear-gradient(135deg,var(--yellow),var(--green));
+}
+
+.bisa-scan-bar{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:34px;
+  height:13px;
+  border-radius:20px;
+  overflow:hidden;
+  background:rgba(255,255,255,.12);
+}
+
+.bisa-scan-bar span{
+  display:block;
+  width:60%;
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  animation:bisaLoad 2s infinite alternate;
+}
+
+@keyframes bisaLoad{
+  from{width:28%}
+  to{width:92%}
+}
+
+.faq-stack{
+  display:grid;
+  gap:12px;
+}
+
+.faq-box{
+  background:white;
+  color:var(--dark);
+  border-radius:20px;
+  padding:20px;
+  cursor:pointer;
+}
+
+.faq-question{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  font-weight:900;
+}
+
+.faq-answer{
+  display:none;
+  padding-top:12px;
+  color:#5e6a78;
+  line-height:1.55;
+}
+
+.contact-layout{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:22px;
+}
+
+.contact-info,
+.contact-form{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:30px;
+  padding:28px;
+}
+
+.form-control{
+  width:100%;
+  padding:16px;
+  margin-bottom:12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  color:white;
+  outline:none;
+  font-size:15px;
+}
+
+.form-control::placeholder{color:#c4ced8}
+
+select.form-control option{color:#071019}
+
+textarea.form-control{
+  min-height:120px;
+  resize:none;
+}
+
+.footer-auto{
+  margin:0 20px 24px;
+  border-radius:30px;
+  padding:22px;
+  background:
+    linear-gradient(90deg,rgba(0,107,255,.18),rgba(0,200,83,.12),rgba(0,107,255,.18)),
+    #06111d;
+  border:1px solid rgba(255,255,255,.13);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px;
+  color:#dce6f2;
+}
+
+.footer-auto strong{
+  color:white;
+}
+
+.float-wsp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:29px;
+  z-index:100;
+  box-shadow:0 15px 45px rgba(37,211,102,.45);
+}
+
+@media(max-width:960px){
+  .nav-menu{
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    background:#06111d;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:22px;
+    padding:20px;
+    display:none;
+    flex-direction:column;
+  }
+
+  .nav-menu.active{display:flex}
+
+  .menu-toggle{display:block}
+
+  .service-grid,
+  .type-wall,
+  .process-line,
+  .tips-grid,
+  .bisa-pay-shell,
+  .contact-layout{
+    grid-template-columns:1fr;
+  }
+
+  .hero-gate h1{
+    letter-spacing:-2px;
+  }
+
+  .gate-stage{
+    height:260px;
+  }
+
+  .gate-panel{
+    width:190px;
+    height:135px;
+  }
+
+  @keyframes openLeft{
+    from{transform:translateX(0)}
+    to{transform:translateX(-62px)}
+  }
+
+  @keyframes openRight{
+    from{transform:translateX(0)}
+    to{transform:translateX(62px)}
+  }
+
+  .remote{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav-auto">
+  <div class="logo-auto">
+    <i class="fa-solid fa-door-open"></i>
+    Portones Automáticos Bolivia
+  </div>
+
+  <div class="nav-menu" id="navMenu">
+    <a href="#servicios">Servicios</a>
+    <a href="#tipos">Tipos de portones</a>
+    <a href="#cobertura">Cobertura</a>
+    <a href="#pagos">Banco BISA</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+    <a class="nav-whatsapp" href="https://wa.me/59133262177" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
+
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+<header class="hero-gate">
+  <div class="access-pulse p1"></div>
+  <div class="access-pulse p2"></div>
+  <div class="access-pulse p3"></div>
+
+  <div class="hero-content">
+    <div class="tag-auto">
+      <i class="fa-solid fa-shield-halved"></i>
+      Automatización, motores y acceso seguro
+    </div>
+
+    <h1>Instalación de <span>portones eléctricos</span></h1>
+
+    <p>
+      Automatización de portones en Bolivia para viviendas, garajes, negocios,
+      condominios e industrias. Motores, controles, sensores, mantenimiento y reparación técnica.
+    </p>
+
+    <div class="gate-stage">
+      <div class="gate-track"></div>
+      <div class="gate-post left"></div>
+      <div class="gate-post right"></div>
+
+      <div class="gate-panel left"></div>
+      <div class="gate-panel right"></div>
+
+      <div class="sensor s1"></div>
+      <div class="sensor s2"></div>
+
+      <div class="remote"></div>
+
+      <div class="motor-box">
+        <i class="fa-solid fa-gear"></i>
+      </div>
+    </div>
+
+    <div class="hero-buttons">
+      <a class="btn-main" href="https://wa.me/59133262177" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+      </a>
+      <a class="btn-ghost" href="#servicios">
+        <i class="fa-solid fa-arrow-down"></i> Ver servicios
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="section-light" id="servicios">
+  <div class="container">
+    <h2 class="section-title">Servicios de automatización</h2>
+    <p class="section-sub">
+      Soluciones técnicas para instalar, automatizar, revisar y mantener sistemas de portones eléctricos.
+    </p>
+
+    <div class="service-grid">
+      <div class="service-unit"><i class="fa-solid fa-screwdriver-wrench"></i><h3>Instalación de portones eléctricos</h3><p>Montaje y configuración de sistemas automáticos.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-bolt"></i><h3>Automatización de portones existentes</h3><p>Adaptación del portón actual con motor y control.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-arrows-left-right"></i><h3>Motores corredizos</h3><p>Instalación para portones de apertura lateral.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-door-closed"></i><h3>Motores batientes</h3><p>Automatización para hojas de apertura abatible.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-gamepad"></i><h3>Control remoto</h3><p>Configuración de controles para acceso vehicular.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-satellite-dish"></i><h3>Sensores de seguridad</h3><p>Apoyo para mayor protección durante apertura y cierre.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-toolbox"></i><h3>Mantenimiento técnico</h3><p>Revisión de motor, rieles, controles y sistema eléctrico.</p></div>
+      <div class="service-unit"><i class="fa-solid fa-plug-circle-bolt"></i><h3>Reparación eléctrica</h3><p>Diagnóstico de fallas en motores, cableado o accesorios.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="tipos">
+  <div class="container">
+    <h2 class="section-title">Tipos de portones</h2>
+    <p class="section-sub">
+      Atención para diferentes formatos residenciales, comerciales e industriales.
+    </p>
+
+    <div class="type-wall">
+      <div class="type-block">Corredizos</div>
+      <div class="type-block">Batientes</div>
+      <div class="type-block">Levadizos</div>
+      <div class="type-block">Residenciales</div>
+      <div class="type-block">Comerciales</div>
+      <div class="type-block">Industriales</div>
+      <div class="type-block">Garajes</div>
+      <div class="type-block">Condominios</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light" id="cobertura">
+  <div class="container">
+    <h2 class="section-title">Cobertura en Bolivia</h2>
+    <p class="section-sub">
+      Servicio bajo coordinación en Bolivia. Dirección de referencia: <strong>Bolivia</strong>.
+    </p>
+
+    <div class="cover-box">
+      <div class="search-zone">
+        <i class="fa-solid fa-location-dot"></i>
+        <input id="zoneSearch" type="text" placeholder="Buscar ciudad o zona...">
+      </div>
+
+      <div class="zone-list" id="zoneList">
+        <span class="zone-chip">Bolivia</span>
+        <span class="zone-chip">Santa Cruz</span>
+        <span class="zone-chip">La Paz</span>
+        <span class="zone-chip">Cochabamba</span>
+        <span class="zone-chip">Sucre</span>
+        <span class="zone-chip">Tarija</span>
+        <span class="zone-chip">Oruro</span>
+        <span class="zone-chip">Potosí</span>
+        <span class="zone-chip">Beni</span>
+        <span class="zone-chip">Pando</span>
+        <span class="zone-chip">Más zonas bajo coordinación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <h2 class="section-title">Cómo solicitar</h2>
+    <p class="section-sub">
+      Un proceso simple para revisar el portón y coordinar instalación o diagnóstico.
+    </p>
+
+    <div class="process-line">
+      <div class="process-step"><strong>01</strong><p>Contactar por WhatsApp.</p></div>
+      <div class="process-step"><strong>02</strong><p>Enviar foto del portón.</p></div>
+      <div class="process-step"><strong>03</strong><p>Indicar ciudad o zona.</p></div>
+      <div class="process-step"><strong>04</strong><p>Coordinar diagnóstico.</p></div>
+      <div class="process-step"><strong>05</strong><p>Confirmar instalación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <h2 class="section-title">Recomendaciones técnicas</h2>
+    <p class="section-sub">
+      Cuidados importantes para mejorar el funcionamiento y evitar daños en el sistema.
+    </p>
+
+    <div class="tips-grid">
+      <div class="tip">Revisar espacio disponible.</div>
+      <div class="tip">Verificar estado del portón.</div>
+      <div class="tip">No forzar el motor.</div>
+      <div class="tip">Mantener rieles limpios.</div>
+      <div class="tip">Revisar controles.</div>
+      <div class="tip">Hacer mantenimiento preventivo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="bisa-pay-zone" id="pagos">
+  <div class="bisa-pay-shell">
+    <div>
+      <h2 class="section-title">Pagos por Banco BISA</h2>
+      <p class="section-sub">
+        Consulta por WhatsApp las opciones de pago o coordinación relacionadas con Banco BISA antes de confirmar el servicio.
+      </p>
+
+      <div class="bisa-bank-chip">
+        <h3>Banco BISA</h3>
+        <p>
+          Módulo de consulta para pagos, coordinación de instalación, diagnóstico o mantenimiento de portones eléctricos.
+        </p>
+
+        <a class="bisa-pay-button" href="https://wa.me/59133262177?text=Hola,%20quiero%20consultar%20pagos%20por%20Banco%20BISA%20para%20instalaci%C3%B3n%20de%20port%C3%B3n%20el%C3%A9ctrico" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Consultar Banco BISA
+        </a>
+      </div>
+    </div>
+
+    <div class="bisa-pay-console">
+      <div class="tag-auto">
+        <i class="fa-solid fa-building-columns"></i>
+        Terminal técnico de pago
+      </div>
+
+      <div class="bisa-visual-terminal">
+        <div class="bisa-scan-bar"><span></span></div>
+      </div>
+
+      <p style="position:relative;z-index:2;text-align:center;color:#c6d2de;line-height:1.6">
+        Estado: listo para consultar pago, visita técnica o instalación por WhatsApp.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-light" id="faq">
+  <div class="container">
+    <h2 class="section-title">Preguntas frecuentes</h2>
+
+    <div class="faq-stack">
+      <div class="faq-box"><div class="faq-question">¿Instalan portones eléctricos desde cero?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Sí, se puede coordinar instalación según el tipo de portón, espacio disponible y ciudad.</div></div>
+      <div class="faq-box"><div class="faq-question">¿Pueden automatizar un portón existente?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Sí, primero se revisa el estado del portón para saber si es apto para motorizar.</div></div>
+      <div class="faq-box"><div class="faq-question">¿Instalan motores corredizos y batientes?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Sí, se atienden sistemas corredizos, batientes y otros formatos bajo diagnóstico.</div></div>
+      <div class="faq-box"><div class="faq-question">¿Cuánto tarda la instalación?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Depende del tipo de portón, motor, condiciones eléctricas y coordinación previa.</div></div>
+      <div class="faq-box"><div class="faq-question">¿El sistema incluye sensores de seguridad?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Se pueden consultar sensores y accesorios según el proyecto y necesidad del acceso.</div></div>
+      <div class="faq-box"><div class="faq-question">¿Atienden en toda Bolivia?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">La cobertura se coordina por ciudad o zona mediante WhatsApp.</div></div>
+      <div class="faq-box"><div class="faq-question">¿Puedo consultar pagos por Banco BISA?<i class="fa-solid fa-plus"></i></div><div class="faq-answer">Sí, puedes consultar opciones de pago por Banco BISA directamente por WhatsApp.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="contacto">
+  <div class="container contact-layout">
+    <div class="contact-info">
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-sub">
+        Envía los datos de tu portón y coordina diagnóstico, instalación o mantenimiento.
+      </p>
+
+      <p><i class="fa-brands fa-whatsapp"></i> +591 33262177</p><br>
+      <p><i class="fa-solid fa-location-dot"></i> Bolivia</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <input class="form-control" id="name" type="text" placeholder="Nombre" required>
+      <input class="form-control" id="phone" type="tel" placeholder="Teléfono" required>
+      <input class="form-control" id="city" type="text" placeholder="Ciudad o zona" required>
+
+      <select class="form-control" id="gateType" required>
+        <option value="">Tipo de portón</option>
+        <option>Corredizo</option>
+        <option>Batiente</option>
+        <option>Levadizo</option>
+        <option>Residencial</option>
+        <option>Comercial</option>
+        <option>Industrial</option>
+        <option>Garaje</option>
+        <option>Condominio</option>
+      </select>
+
+      <textarea class="form-control" id="message" placeholder="Mensaje"></textarea>
+
+      <button class="btn-main" type="submit">
+        <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+<div class="footer-auto">
+  <strong><i class="fa-solid fa-bolt"></i> Portones Automáticos Bolivia</strong>
+  <span>Instalación · Motores · Sensores · Mantenimiento</span>
+  <span>Bolivia</span>
+</div>
+
+<a class="float-wsp" href="https://wa.me/59133262177" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click",()=>{
+  navMenu.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    navMenu.classList.remove("active");
+  });
+});
+
+document.getElementById("zoneSearch").addEventListener("input",function(){
+  const value = this.value.toLowerCase();
+
+  document.querySelectorAll(".zone-chip").forEach(zone=>{
+    zone.style.display = zone.textContent.toLowerCase().includes(value) ? "inline-flex" : "none";
+  });
+});
+
+document.querySelectorAll(".faq-box").forEach(item=>{
+  item.addEventListener("click",()=>{
+    const answer = item.querySelector(".faq-answer");
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  });
+});
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const city = document.getElementById("city").value;
+  const gateType = document.getElementById("gateType").value;
+  const message = document.getElementById("message").value;
+
+  const text =
+  `Hola, quiero consultar instalación de portón eléctrico.%0A%0A` +
+  `Nombre: ${encodeURIComponent(name)}%0A` +
+  `Teléfono: ${encodeURIComponent(phone)}%0A` +
+  `Ciudad/Zona: ${encodeURIComponent(city)}%0A` +
+  `Tipo de portón: ${encodeURIComponent(gateType)}%0A` +
+  `Mensaje: ${encodeURIComponent(message)}`;
+
+  window.open(`https://wa.me/59133262177?text=${text}`,"_blank");
+});
+
+gsap.from(".tag-auto",{y:20,opacity:0,duration:.8});
+gsap.from(".hero-gate h1",{y:45,opacity:0,duration:1,delay:.15});
+gsap.from(".hero-gate p",{y:25,opacity:0,duration:.9,delay:.3});
+gsap.from(".gate-stage",{scale:.88,opacity:0,duration:1,delay:.45,ease:"back.out(1.7)"});
+gsap.from(".hero-buttons",{y:24,opacity:0,duration:.8,delay:.65});
+
+const revealItems = document.querySelectorAll(".service-unit,.type-block,.process-step,.tip,.faq-box,.bisa-bank-chip");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      gsap.to(entry.target,{
+        y:0,
+        opacity:1,
+        duration:.65,
+        ease:"power2.out"
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.15});
+
+revealItems.forEach(item=>{
+  gsap.set(item,{y:35,opacity:0});
+  observer.observe(item);
+});
+</script>
+
+</body>
+</html>
